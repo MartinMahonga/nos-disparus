@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -66,29 +67,29 @@ export function SignUpForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Sign up</CardTitle>
-          <CardDescription>Create a new account</CardDescription>
+          <CardTitle className="text-2xl text-center">Inscription</CardTitle>
+          <CardDescription className="text-center">Créez votre compte pour signaler ou rechercher des personnes disparues</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignUp}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Firstname</Label>
+                <Label htmlFor="email">Prénom</Label>
                 <Input
                   id="firstname"
                   type="text"
-                  placeholder="Doe"
+                  placeholder="John"
                   required
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">Lastname</Label>
+                <Label htmlFor="email">Nom</Label>
                 <Input
                   id="lastname"
                   type="text"
-                  placeholder="John"
+                  placeholder="Doe"
                   required
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
@@ -99,7 +100,7 @@ export function SignUpForm({
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="exemple@email.com"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -107,37 +108,52 @@ export function SignUpForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Mot de passe</Label>
                 </div>
                 <Input
                   id="password"
                   type="password"
                   required
+                  placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="repeat-password">Repeat Password</Label>
+                  <Label htmlFor="repeat-password">Confirmer le mot de passe</Label>
                 </div>
                 <Input
                   id="repeat-password"
                   type="password"
                   required
+                  placeholder="••••••••"
                   value={repeatPassword}
                   onChange={(e) => setRepeatPassword(e.target.value)}
                 />
               </div>
               {error && <p className="text-sm text-red-500">{error}</p>}
+              <div className="flex items-start gap-2">
+                <Checkbox id="terms" />
+                <label htmlFor="terms" className="text-sm text-muted-foreground leading-tight">
+                  J'accepte les{" "}
+                  <Link href="/terms" className="text-accent hover:underline">
+                    conditions d'utilisation
+                  </Link>{" "}
+                  et la{" "}
+                  <Link href="/privacy" className="text-accent hover:underline">
+                    politique de confidentialité
+                  </Link>
+                </label>
+              </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Creating an account..." : "Sign up"}
+                {isLoading ? "Creation en cours..." : "S'inscrire"}
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
-              Already have an account?{" "}
+              Vous avez déjà un compte ?{" "}
               <Link href="/auth/login" className="underline underline-offset-4">
-                Login
+                Connectez-vous
               </Link>
             </div>
           </form>
