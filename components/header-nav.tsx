@@ -127,7 +127,7 @@ export function HeaderNav() {
             </NavigationMenu.List>
 
             <div className="absolute left-0 top-full flex w-full justify-center perspective-[2000px]">
-              <NavigationMenu.Viewport className="relative mt-6 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] origin-top-center transition-[width,height] duration-300" />
+              <NavigationMenu.Viewport className="relative bg-background mt-6 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-border text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] origin-top-center transition-[width,height] duration-300" />
             </div>
           </NavigationMenu.Root>
         </div>
@@ -157,10 +157,10 @@ export function HeaderNav() {
           </Button>
         </div>
       </nav>
-
+      
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="md:hidden fixed z-30 border-t border-border bg-background">
           <nav className="flex flex-col p-4 gap-2">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="ghost" className="w-full justify-start">

@@ -1,6 +1,7 @@
 "use client"
 
 import { HeaderNav } from "./header-nav"
+import { Hero } from "./hero"
 
 export function Header() {
   return (
