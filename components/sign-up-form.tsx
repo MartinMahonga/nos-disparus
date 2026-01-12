@@ -48,8 +48,8 @@ export function SignUpForm({
         password,
         options: {
           data: {
-            firstname,
-            lastname,
+            first_name: firstname,
+            last_name: lastname,
           },
           emailRedirectTo: `${window.location.origin}/protected`,
         },
@@ -76,7 +76,7 @@ export function SignUpForm({
               <div className="grid gap-2">
                 <Label htmlFor="email">Prénom</Label>
                 <Input
-                  id="firstname"
+                  id="first_name"
                   type="text"
                   placeholder="John"
                   required
@@ -87,7 +87,7 @@ export function SignUpForm({
               <div className="grid gap-2">
                 <Label htmlFor="email">Nom</Label>
                 <Input
-                  id="lastname"
+                  id="last_name"
                   type="text"
                   placeholder="Doe"
                   required
