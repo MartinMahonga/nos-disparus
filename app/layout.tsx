@@ -9,8 +9,24 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: {
+    default: "Nos Disparus - Plateforme d'Alerte de Personnes Disparues",
+    template: "%s | Nos Disparus"
+  },
+  description: "Aidez-nous à retrouver les personnes disparues à Brazzaville, Pointe-Noire et partout au Congo. Signalez un repérage ou publiez un avis de recherche gratuitement.",
+  openGraph: {
+    title: "Nos Disparus - Solidarité pour retrouver nos proches",
+    description: "Plateforme citoyenne pour signaler et retrouver les personnes disparues en République du Congo.",
+    url: defaultUrl,
+    siteName: "Nos Disparus",
+    locale: "fr_CG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nos Disparus",
+    description: "Signalez une disparition ou un repérage en quelques clics.",
+  },
 };
 
 const geistSans = Geist({
